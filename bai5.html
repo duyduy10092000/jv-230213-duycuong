@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Quản lý nhân viên</h1>
+    <label>Tên nhân viên</label><br>
+    <input id="name" type="text"  placeholder="nhập tên"><br>
+    <button onclick="themnv()">thêm</button>
+    <table id="table">
+        <tr>
+            <td>Tên nhân viên</td>
+            <td>sửa</td>
+            <td>xóa</td>
+        </tr>
+    </table>
+    <script>
+        listnhanvien=[];
+        function themnv() {
+            let Nhanvien = document.getElementById("name").value ;
+            let nameNhanvien= {
+                Nhanvien : Nhanvien 
+            } 
+            listnhanvien.push(nameNhanvien);
+            render()
+        }
+        function render(){
+            let result= ` <tr>
+            <td ">Tên nhân viên</td>
+            <td>sửa</td>
+            <td>xóa</td>
+        </tr>`;
+        for(let i = 0;i<listnhanvien.lenght;i++){
+            result+= ` <tr>
+                <td> ${i + 1} </td>
+            <td ${listnhanvien[i].Nhanvien}</td>
+            <td>sửa</td>
+            <td>xóa</td>
+        </tr>`;  }document.getElementById("table").innerHTML= result ;
+        } 
+      
+    </script>
+    
+</body>
+</html>
